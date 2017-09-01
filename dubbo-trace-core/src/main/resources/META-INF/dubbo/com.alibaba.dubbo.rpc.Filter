@@ -1,0 +1,2 @@
+TraceConsumerFilter=com.codi.superman.dubbo.trace.core.filter.TraceConsumerFilter
+TraceProviderFilter=com.codi.superman.dubbo.trace.core.filter.TraceProviderFilter

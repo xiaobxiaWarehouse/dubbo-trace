@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>dubbo-trace-demo</artifactId>
+        <groupId>com.codi</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>user-web</artifactId>
+    <packaging>jar</packaging>
+    <version>${dubbo.trace.demo.version}</version>
+
+    <name>user-web</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.codi</groupId>
+            <artifactId>codi-base</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codi</groupId>
+            <artifactId>user-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codi</groupId>
+            <artifactId>dubbo-trace-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <configuration>
+                    <executable>java</executable>
+                    <arguments>
+                        <!--<argument>-->
+                        <!-- -javaagent:/opt/pinpoint/pinpoint-agent/pinpoint-bootstrap-1.6.0.jar-->
+                        <!--</argument>-->
+                        <!--<argument>-Dpinpoint.agentId=2001</argument>-->
+                        <!--<argument>-Dpinpoint.applicationName=DEV_DUBBO_TRACE_USER</argument>-->
+                        <argument>-DCODI_HOME=D:\gitlab\codi-product\config\CODI_HOME</argument>
+                        <argument>-classpath</argument>
+                        <classpath/>
+                        <argument>com.codi.dubbo.trace.user.BootStrap</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
